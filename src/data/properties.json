@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "local": {
+      "municipio": "Magé",
+      "distrito": "Inhomirim",
+      "bairro": "Piabetá"
+    },
+    "imovel": {
+      "titulo": "Uma casa em Piabetá",
+      "aquisição": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 2,
+      "quintal": true,
+      "preco": 700
+    },
+    "facilidades": [
+      "Piscina"
+    ],
+    "imagem": "https://www.tuacasa.com.br/wp-content/uploads/2015/06/fachadas-de-casas-000.jpg"
+  },
+  {
+    "id": 2,
+    "local": {
+      "municipio": "Duque de Caxias",
+      "distrito": "Imbariê",
+      "bairro": "Parada Angélica"
+    },
+    "imovel": {
+      "titulo": "Uma casa em Parada Angélica",
+      "aquisição": "Venda",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": false,
+      "preco": 1000
+    },
+    "facilidades": [
+      "Barras de Segurança"
+    ],
+    "imagem": "https://projetaronline.com/wp-content/uploads/2022/11/casa-pequena-planta-baixa-0.png"
+  },
+  {
+    "id": 3,
+    "local": {
+      "municipio": "Arraial do Cabo",
+      "distrito": "Arraial do Cabo",
+      "bairro": "Monte Alto",
+      "Bairro": "Alto da Serra"
+    },
+    "imovel": {
+      "titulo": "Uma casa em Monte Alto",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": true,
+      "preco": 1300
+    },
+    "facilidades": [],
+    "imagem": "https://fashionbubbles.com/wp-content/uploads/2023/01/fachada-de-casa-moderna.jpg"
+  }
+]

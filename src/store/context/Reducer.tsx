@@ -6,6 +6,12 @@ export const reducer = (state: StateType, action: ActionType) => {
       return { ...state, name: action.payload };
     case "CITIES":
       return { ...state, cities: action.payload };
+    case "MUNICIPIO":
+      return { ...state, municipio: action.payload };
+    case "DISTRITO":
+      return { ...state, distrito: action.payload };
+      case "ADDPROPERTY":
+        return { ...state, addProperty: action.payload };
     default:
       return state;
   }

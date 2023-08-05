@@ -9,18 +9,26 @@ import getDistrictInfo from "@/utils/getDistrictInfo";
 import { Box, Slider } from "@mui/material";
 
 function valuetext(value: number) {
-    return `R$ ${value}`;
-  }
+  return `R$ ${value}`;
+}
 
 export default function FiltersSearch() {
   const { state, dispatch } = useContext(Context);
   const removeAccents = (text: string) => diacritics.remove(text);
   const [cities, setCities] = useState([]);
   const [municipioSelect, setMunicipioSelect] = useState("Escolha o Município");
-  const [districtSelect, setDistrictSelect] = useState("Escolha o Município");
+  const [districtSelect, setDistrictSelect] = useState<string>("Escolha o Distrito");
   const [value1, setValue1] = useState<number[]>([0, 10]); // Define o estado para o valor do Slider
+  const regions = getRegions(cities);
+  const [districtInfo, setDistrictInfo] = useState<any[]>([]);
 
   const minDistance = 10;
+
+  const handleClick = () => {
+    dispatch({ type: "MUNICIPIO", payload: municipioSelect });
+    dispatch({ type: "DISTRITO", payload: districtSelect });
+    
+  };
 
   const handleChange1 = (
     event: Event,
@@ -34,38 +42,41 @@ export default function FiltersSearch() {
     if (activeThumb === 0) {
       setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
     } else {
-        console.log(newValue[1])
-        console.log(value1[0]);
-        console.log(minDistance);
       setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
     }
   };
 
   useEffect(() => {
-    requestsCities(setCities);
+    requestsCities(setCities, dispatch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const regions = getRegions(cities);
-  const districtInfo: any = getDistrictInfo(cities);
-
   const districtSelectInfo = districtInfo.filter(
-    ({ municipio }: {municipio: string}) => municipio === municipioSelect
+    ({ municipio }: { municipio: string }) => municipio === municipioSelect
   );
+  
+  useEffect(() => {
+    setDistrictInfo(state.cities);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [districtSelectInfo]);
 
-  console.log(districtInfo);
+  const handleChange = (value: string) => {
+    setMunicipioSelect(value);
+    setDistrictSelect('');
+    dispatch({ type: "DISTRITO", payload: '' });
+  }
 
   return (
     <section className="bg-black font-text-inter bg-house bg-blend-luminosity h-full bg-cover flex justify-around px-28">
       <div className="h-96 w-80 bg-blue-header">
         <div className="flex flex-col px-5 gap-3 pt-10 text-zinc-700">
           <select
-            onChange={(e) => setMunicipioSelect(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
             value={municipioSelect}
             className="h-10"
           >
             <option>- Escolha o Município -</option>
             {districtInfo
-              .map(({ municipio }: {municipio: string}) => municipio)
+              .map(({ municipio }: { municipio: string }) => municipio)
               .reduce((acc: string[], curr: string) => {
                 if (!acc.find((item: string) => item === curr)) {
                   acc.push(curr);
@@ -82,7 +93,7 @@ export default function FiltersSearch() {
             className="h-10"
           >
             <option>- Escolha o Distrito -</option>
-            {districtSelectInfo.map(({ distrito }: {distrito: string}) => (
+            {districtSelectInfo.map(({ distrito }: { distrito: string }) => (
               <option key={distrito}>{distrito}</option>
             ))}
           </select>
@@ -92,7 +103,9 @@ export default function FiltersSearch() {
             <option>Apartamento</option>
           </select>
           <Box sx={{ width: 300 }}>
-            <h3 className="text-white font-extralight text-sm text-center">FAIXA DE PREÇO</h3>
+            <h3 className="text-white font-extralight text-sm text-center">
+              FAIXA DE PREÇO
+            </h3>
             <Slider
               getAriaLabel={() => "Minimum distance"}
               value={value1}
@@ -103,7 +116,12 @@ export default function FiltersSearch() {
               disableSwap
             />
           </Box>
-          <button className="bg-gold-button text-white mx-14 h-10 font-light">PESQUISAR</button>
+          <button
+            className="bg-gold-button text-white mx-14 h-10 font-light"
+            onClick={handleClick}
+          >
+            PESQUISAR
+          </button>
         </div>
       </div>
       <div className="flex flex-col pt-2">
