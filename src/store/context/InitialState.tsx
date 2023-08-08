@@ -21,9 +21,8 @@ export const initialState: StateType = {
       quarto: 0,
       quintal: true,
       preco: 0,
+      imagens: [],
     },
     facilidades: [],
-    imagem:
-      "",
   },
 };

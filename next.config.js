@@ -2,10 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'www.tuacasa.com.br',
-      'projetaronline.com/',
-    ]
+  domains: [
+    'drive.google.com',
+  ]
   }
 }
 

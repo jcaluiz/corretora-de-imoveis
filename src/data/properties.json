@@ -63,5 +63,159 @@
     },
     "facilidades": [],
     "imagem": "https://fashionbubbles.com/wp-content/uploads/2023/01/fachada-de-casa-moderna.jpg"
+  },
+  {
+    "id": 4,
+    "local": {
+      "municipio": "Magé",
+      "distrito": "Guia de Pacobaíba",
+      "bairro": "Praia do Anil"
+    },
+    "imovel": {
+      "titulo": "Casa em Mauá",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": true,
+      "preco": 900
+    },
+    "facilidades": [],
+    "imagem": "https://casacor.abril.com.br/wp-content/uploads/sites/7/2022/01/Casa-Liu-Raiz-Arquitetura-Foto-Leonardo-Giantomasi-2.jpg?quality=90&strip=info"
+  },
+  {
+    "id": 5,
+    "local": {
+      "municipio": "Magé",
+      "distrito": "Guia de Pacobaíba",
+      "bairro": "Praia do Anil"
+    },
+    "imovel": {
+      "titulo": "Casa em Mauá",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": true,
+      "preco": 900
+    },
+    "facilidades": [],
+    "imagem": "https://casacor.abril.com.br/wp-content/uploads/sites/7/2022/01/Casa-Liu-Raiz-Arquitetura-Foto-Leonardo-Giantomasi-2.jpg?quality=90&strip=info"
+  },
+  {
+    "id": 6,
+    "local": {
+      "municipio": "Magé",
+      "distrito": "Guia de Pacobaíba",
+      "bairro": "Praia do Anil"
+    },
+    "imovel": {
+      "titulo": "Casa em Mauá",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": true,
+      "preco": 900
+    },
+    "facilidades": [],
+    "imagem": "https://casacor.abril.com.br/wp-content/uploads/sites/7/2022/01/Casa-Liu-Raiz-Arquitetura-Foto-Leonardo-Giantomasi-2.jpg?quality=90&strip=info"
+  },
+  {
+    "id": 7,
+    "local": {
+      "municipio": "Duque de Caxias",
+      "distrito": "Imbariê",
+      "bairro": "Taquara"
+    },
+    "imovel": {
+      "titulo": "Casa na Taquara, Duque de Caxias",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 1,
+      "quintal": false,
+      "preco": 600
+    },
+    "facilidades": [],
+    "imagem": "https://www.tuacasa.com.br/wp-content/uploads/2023/04/casas-modernas-00-1200x900.jpg"
+  },
+  {
+    "id": 8,
+    "local": {
+      "municipio": "Magé",
+      "distrito": "Inhomirim",
+      "bairro": "Fragoso"
+    },
+    "imovel": {
+      "titulo": "Casa em Fragoso",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": true,
+      "preco": 1300
+    },
+    "facilidades": [],
+    "imagem": "https://www.tuacasa.com.br/wp-content/uploads/2023/04/casas-modernas-00-1200x900.jpg"
+  },
+  {
+    "id": 9,
+    "local": {
+      "municipio": "Magé",
+      "distrito": "Inhomirim",
+      "bairro": "Fragoso"
+    },
+    "imovel": {
+      "titulo": "Casa em Fragoso",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": true,
+      "preco": 900,
+      "imagens": {
+        "images": [
+          "https://drive.google.com/uc?export=view&id=1nk0VJk64Vgb4YthTqesyGz-r4GN1IKZf",
+          "https://drive.google.com/uc?export=view&id=1HJA9p0nBS276WCJG3EOEF9XZ8btfz4HG",
+          "https://drive.google.com/uc?export=view&id=1oEY1EBLS_wIL3B5X8VH17QFhAm5nvxX4"
+        ]
+      }
+    },
+    "facilidades": []
+  },
+  {
+    "id": 10,
+    "local": {
+      "municipio": "",
+      "distrito": "",
+      "bairro": "Parada Angélica"
+    },
+    "imovel": {
+      "titulo": "Uma casa em Parada Angélica",
+      "aquisicao": "Aluguel",
+      "tipo": "",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 2,
+      "quintal": true,
+      "preco": 1200,
+      "imagens": {
+        "images": [
+          "https://drive.google.com/uc?export=view&id=1RKjToiTmiu7kkQ08C7A4e5e2I6p-Td99",
+          "https://drive.google.com/uc?export=view&id=17QnxH4kNDxrlIS_I3tjW8QIsaxZlsPOf",
+          "https://drive.google.com/uc?export=view&id=1J0WlT7JB0gaDOYk0KWvYAUG6qSx1KpNe",
+          "https://drive.google.com/uc?export=view&id=1Kjz1CNzHKyw1gkHaARM-co9ny4wHchNq",
+          "https://drive.google.com/uc?export=view&id=1yGRjr5hXo-oCCkWhyUuAEZ8iZaWwBUwT"
+        ]
+      }
+    },
+    "facilidades": []
   }
 ]

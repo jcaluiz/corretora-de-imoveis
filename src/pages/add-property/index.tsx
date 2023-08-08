@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import SelectLocalInfo from "@/components/SelectLocalInfo";
 import { Context } from "@/store/context/Context";
 import { useContext } from "react";
+import UploadInput from "./components/UploadInput";
 
 export default function AddProperty() {
   const { state, dispatch } = useContext(Context);
@@ -141,7 +142,7 @@ export default function AddProperty() {
                     })}
             />
           </div>
-          <div className="flex flex-col px-5 gap-3 pt-5 text-zinc-700">
+          {/* <div className="flex flex-col px-5 gap-3 pt-5 text-zinc-700">
             <input
               type="text"
               className="h-10 text-center"
@@ -155,7 +156,8 @@ export default function AddProperty() {
                         }
                     })}
             />
-          </div>
+          </div> */}
+          <UploadInput />
         </div>
         <SelectLocalInfo>PUBLICAR</SelectLocalInfo>
       </div>

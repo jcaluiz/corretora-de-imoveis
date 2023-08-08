@@ -1,8 +1,9 @@
 "use client";
-import properties from "@/data/properties.json";
+import RequestsProperty from "@/services/RequestsProperty";
 import { Context } from "@/store/context/Context";
 import { BedSingle, ChefHat, MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 
 export default function PropertiesRender() {
@@ -10,10 +11,17 @@ export default function PropertiesRender() {
   const [houses, setHouses] = useState<any[]>([]);
   const [newHouses, setNewHouses] = useState<any[]>([]);
 
+  const requests = new RequestsProperty();
+
   useEffect(() => {
-    
-    setHouses(properties)
-    setTimeout(() => setNewHouses(properties), 500);
+    const getPropertiesRequests = async () => {
+      const getProperties = await requests.getAllProperty()
+      console.log(getProperties);
+      setHouses(getProperties);
+      setTimeout(() => setNewHouses(getProperties), 500);
+    }
+    getPropertiesRequests();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -24,16 +32,18 @@ export default function PropertiesRender() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.municipio, state.distrito]);
 
+  console.log(newHouses)
+
   return (
     <section className="flex flex-col font-text-inter px-40 py-10">
       <h1 className="text-2xl">Propriedades em destaque</h1>
       <div className="border-t pb-10" />
       <section className="flex gap-5">
         {newHouses && newHouses.map((property) => (
-          <div key={property.id} className="flex border pb-2 px-2">
+          <Link href={`/property/${property['_id']}`} key={property.id} className="flex border pb-2 px-2">
             <div className="flex flex-col">
               <Image
-                src="https://www.tuacasa.com.br/wp-content/uploads/2015/06/fachadas-de-casas-000.jpg"
+                src={property.imovel.imagens.images[0]}
                 alt={property.imovel.titulo}
                 width={250}
                 height={250}
@@ -68,7 +78,7 @@ export default function PropertiesRender() {
                 </p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </section>
     </section>

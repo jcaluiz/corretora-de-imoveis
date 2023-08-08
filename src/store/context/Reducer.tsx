@@ -10,8 +10,10 @@ export const reducer = (state: StateType, action: ActionType) => {
       return { ...state, municipio: action.payload };
     case "DISTRITO":
       return { ...state, distrito: action.payload };
-      case "ADDPROPERTY":
-        return { ...state, addProperty: action.payload };
+    case "ADDPROPERTY":
+      return { ...state, addProperty: action.payload };
+    // case "ADDIMAGES":
+    //   return { ...state, addPropertyimagens: action.payload };
     default:
       return state;
   }

@@ -19,9 +19,9 @@ export type StateType = {
             quarto: number,
             quintal: boolean,
             preco: number
+            imagens: string[],
         },
         facilidades: string[],
-        imagem: string,
     },
 };
 
@@ -35,4 +35,6 @@ export type ActionType = {
     type: "DISTRITO", payload: string,
 }  | {
     type: "ADDPROPERTY", payload: any,
+}  | {
+    type: "ADDIMAGES", payload: string[],
 };

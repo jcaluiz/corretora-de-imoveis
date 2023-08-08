@@ -4,6 +4,7 @@ import { ReactNode, useContext, useEffect, useState } from "react";
 import properties from "@/data/properties.json";
 // import handler from "@/api/handler";
 import pushProperty from "@/services/pushProperty";
+import RequestsProperty from "@/services/RequestsProperty";
 
 interface Props {
   children: ReactNode;
@@ -15,6 +16,7 @@ export default function SelectLocalInfo({ children }: Props) {
   const [districtSelect, setDistrictSelect] =
     useState<string>("Escolha o Distrito");
   const [districtInfo, setDistrictInfo] = useState<any[]>([]);
+  const requests = new RequestsProperty();
 
   const districtSelectInfo = districtInfo.filter(
     ({ municipio }: { municipio: string }) => municipio === municipioSelect
@@ -24,6 +26,7 @@ export default function SelectLocalInfo({ children }: Props) {
     dispatch({ type: "MUNICIPIO", payload: municipioSelect });
     dispatch({ type: "DISTRITO", payload: districtSelect });
     pushProperty(state.addProperty);
+    requests.publishProperty(state.addProperty);
   };
 
   useEffect(() => {
