@@ -3,12 +3,14 @@ import Header from "@/components/Header";
 import RequestsProperty from "@/services/RequestsProperty";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import IProperty from "@/interfaces/IProperty";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
+import { Context } from "@/store/context/Context";
 
 export default function Property() {
+  const {state} = useContext(Context);
   const [property, setProperty] = useState<IProperty>();
   const requests = new RequestsProperty();
   const router = useRouter();
@@ -49,11 +51,14 @@ export default function Property() {
       <Header />
       {property && (
         <main className="flex flex-col pt-10 font-text-inter h-screen justify-between">
-          <div className="flex justify-around">
-            <div className="flex flex-col">
-              <div className="flex items-center">
-                <button onClick={(e) => handleClick(e, 'decrement')}>
-                  <ChevronLeft />
+          <div className={!state.isScreenSmallMd ? "flex justify-around" : "flex flex-col"}>
+            <div className={!state.isScreenSmallMd ? "flex flex-col" : "flex flex-col items-center"}>
+              <div className="flex items-center relative z-0">
+                <button 
+                  onClick={(e) => handleClick(e, 'decrement')}
+                  className="absolute left-0 opacity-20"
+                >
+                  <ChevronLeft size={100} />
                 </button>
                 <Image
                   src={property.imovel.imagens.images[photoIndex]}
@@ -61,8 +66,11 @@ export default function Property() {
                   width={500}
                   height={500}
                 />
-                <button onClick={(e) => handleClick(e, 'increment')}>
-                  <ChevronRight />
+                <button 
+                  onClick={(e) => handleClick(e, 'increment')}
+                  className="absolute right-0 opacity-20"
+                >
+                  <ChevronRight size={100} />
                 </button>
               </div>
               <div>

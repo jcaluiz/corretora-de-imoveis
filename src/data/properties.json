@@ -245,5 +245,30 @@
       }
     },
     "facilidades": []
+  },
+  {
+    "id": 12,
+    "local": {
+      "municipio": "Duque de Caxias",
+      "distrito": "Imbariê",
+      "bairro": "Taquara"
+    },
+    "imovel": {
+      "titulo": "Casa na Taquara",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 3,
+      "quintal": true,
+      "preco": 1000,
+      "imagens": {
+        "images": [
+          "https://drive.google.com/uc?export=view&id=1PepLcqUSJ4jdI4ctfGAbvs4cgr9zwlKs",
+          "https://drive.google.com/uc?export=view&id=1uivSO6Vl-HnUFps4knjGVhet0PxEwfy5"
+        ]
+      }
+    },
+    "facilidades": []
   }
 ]

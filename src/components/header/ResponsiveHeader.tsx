@@ -12,7 +12,7 @@ export default function ResponsiveHeader() {
   return (
     <>
       {state.isScreenSmallMd && (
-        <header className="bg-blue-header h-40 flex items-center justify-around font-text-inter">
+        <header className="bg-blue-header h-40 flex items-center justify-around font-text-inter z-10">
           <Image
             src="/images/header/logo.svg"
             width={250}
