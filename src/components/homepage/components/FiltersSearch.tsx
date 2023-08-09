@@ -17,7 +17,8 @@ export default function FiltersSearch() {
   const removeAccents = (text: string) => diacritics.remove(text);
   const [cities, setCities] = useState([]);
   const [municipioSelect, setMunicipioSelect] = useState("Escolha o Município");
-  const [districtSelect, setDistrictSelect] = useState<string>("Escolha o Distrito");
+  const [districtSelect, setDistrictSelect] =
+    useState<string>("Escolha o Distrito");
   const [value1, setValue1] = useState<number[]>([0, 10]); // Define o estado para o valor do Slider
   const regions = getRegions(cities);
   const [districtInfo, setDistrictInfo] = useState<any[]>([]);
@@ -27,7 +28,6 @@ export default function FiltersSearch() {
   const handleClick = () => {
     dispatch({ type: "MUNICIPIO", payload: municipioSelect });
     dispatch({ type: "DISTRITO", payload: districtSelect });
-    
   };
 
   const handleChange1 = (
@@ -53,21 +53,27 @@ export default function FiltersSearch() {
   const districtSelectInfo = districtInfo.filter(
     ({ municipio }: { municipio: string }) => municipio === municipioSelect
   );
-  
+
   useEffect(() => {
     setDistrictInfo(state.cities);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [districtSelectInfo]);
 
   const handleChange = (value: string) => {
     setMunicipioSelect(value);
-    setDistrictSelect('');
-    dispatch({ type: "DISTRITO", payload: '' });
-  }
+    setDistrictSelect("");
+    dispatch({ type: "DISTRITO", payload: "" });
+  };
 
   return (
-    <section className="bg-black font-text-inter bg-house bg-blend-luminosity h-full bg-cover flex justify-around px-28">
-      <div className="h-96 w-80 bg-blue-header">
+    <section
+      className={
+        !state.isScreenSmallMd
+          ? "bg-black font-text-inter bg-house bg-blend-luminosity h-full bg-cover flex justify-around px-28"
+          : "flex flex-col bg-house bg-blend-luminosity bg-black"
+      }
+    >
+      <div className={!state.isScreenSmallMd ? "h-96 w-80 bg-blue-header" : "pb-24"}>
         <div className="flex flex-col px-5 gap-3 pt-10 text-zinc-700">
           <select
             onChange={(e) => handleChange(e.target.value)}
@@ -102,20 +108,28 @@ export default function FiltersSearch() {
             <option>Casa</option>
             <option>Apartamento</option>
           </select>
-          <Box sx={{ width: 300 }}>
-            <h3 className="text-white font-extralight text-sm text-center">
-              FAIXA DE PREÇO
-            </h3>
-            <Slider
-              getAriaLabel={() => "Minimum distance"}
-              value={value1}
-              onChange={handleChange1}
-              valueLabelDisplay="auto"
-              max={10000}
-              valueLabelFormat={valuetext}
-              disableSwap
-            />
-          </Box>
+          <div className={!state.isScreenSmallMd ? "" : "w-screen flex justify-center"}>
+            <Box sx={{ width: !state.isScreenSmallMd ? 300 : 600 }}>
+              <h3
+                className={
+                  !state.isScreenSmallMd
+                    ? "text-white font-extralight text-sm text-center"
+                    : "text-2xl text-center font-black"
+                }
+              >
+                FAIXA DE PREÇO
+              </h3>
+              <Slider
+                getAriaLabel={() => "Minimum distance"}
+                value={value1}
+                onChange={handleChange1}
+                valueLabelDisplay="auto"
+                max={10000}
+                valueLabelFormat={valuetext}
+                disableSwap
+              />
+            </Box>
+          </div>
           <button
             className="bg-gold-button text-white mx-14 h-10 font-light"
             onClick={handleClick}
@@ -124,6 +138,14 @@ export default function FiltersSearch() {
           </button>
         </div>
       </div>
+      <div
+        className={
+          !state.isScreenSmallMd ? (
+            "flex gap-5"
+            ) : "flex w-screen justify-around bg-gray-header"
+        }
+      >
+
       <div className="flex flex-col pt-2">
         <h3 className="text-blue-header font-bold text-lg text-center">
           LOCAÇÃO
@@ -136,6 +158,7 @@ export default function FiltersSearch() {
             >
               <input
                 type="checkbox"
+                className="accent-green-600"
                 id={removeAccents(region).toLowerCase().replace(/\s/gm, "-")}
               />
               <label
@@ -161,18 +184,20 @@ export default function FiltersSearch() {
             >
               <input
                 type="checkbox"
+                className="accent-green-600"
                 id={removeAccents(facility).toLowerCase().replace(/\s/gm, "-")}
-              />
+                />
               <label
                 htmlFor={removeAccents(facility)
                   .toLowerCase()
                   .replace(/\s/gm, "-")}
-              >
+                  >
                 {facility}
               </label>
             </div>
           ))}
         </div>
+          </div>
       </div>
     </section>
   );

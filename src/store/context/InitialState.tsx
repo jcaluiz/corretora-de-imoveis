@@ -5,6 +5,7 @@ export const initialState: StateType = {
   cities: [],
   municipio: "",
   distrito: "",
+  isScreenSmallMd: false,
   addProperty: {
     id: 0,
     local: {

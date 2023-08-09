@@ -217,5 +217,33 @@
       }
     },
     "facilidades": []
+  },
+  {
+    "id": 11,
+    "local": {
+      "municipio": "",
+      "distrito": "",
+      "bairro": "Fragoso"
+    },
+    "imovel": {
+      "titulo": "Casa em Fragoso",
+      "aquisicao": "Aluguel",
+      "tipo": "Casa",
+      "sala": 1,
+      "cozinha": 1,
+      "quarto": 2,
+      "quintal": true,
+      "preco": 800,
+      "imagens": {
+        "images": [
+          "https://drive.google.com/uc?export=view&id=1NUXnKDYxuQ_3zt90VIA7rhFNnUqLiQWM",
+          "https://drive.google.com/uc?export=view&id=1yQEDKjGYV_z44wrWfN5-4T6kAr6sKXy9",
+          "https://drive.google.com/uc?export=view&id=1oJZw_SroczdcZWy45u9_IKMnzLMmSZ0e",
+          "https://drive.google.com/uc?export=view&id=1Rv-qr-lUqRJQ9RnreHwHZcyzCUGju1IX",
+          "https://drive.google.com/uc?export=view&id=1Nbn_8HlxwwlYhfML73hfaNwaPTXECtl4"
+        ]
+      }
+    },
+    "facilidades": []
   }
 ]

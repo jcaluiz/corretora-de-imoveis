@@ -3,6 +3,7 @@ export type StateType = {
     cities: any[];
     municipio: string;
     distrito: string;
+    isScreenSmallMd: boolean,
     addProperty: {
         id: number,
         local: {
@@ -37,4 +38,6 @@ export type ActionType = {
     type: "ADDPROPERTY", payload: any,
 }  | {
     type: "ADDIMAGES", payload: string[],
+}  | {
+    type: "SCREENMD", payload: boolean,
 };

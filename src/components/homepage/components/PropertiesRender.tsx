@@ -16,7 +16,6 @@ export default function PropertiesRender() {
   useEffect(() => {
     const getPropertiesRequests = async () => {
       const getProperties = await requests.getAllProperty()
-      console.log(getProperties);
       setHouses(getProperties);
       setTimeout(() => setNewHouses(getProperties), 500);
     }
@@ -32,13 +31,11 @@ export default function PropertiesRender() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.municipio, state.distrito]);
 
-  console.log(newHouses)
-
   return (
     <section className="flex flex-col font-text-inter px-40 py-10">
       <h1 className="text-2xl">Propriedades em destaque</h1>
       <div className="border-t pb-10" />
-      <section className="flex gap-5">
+      <section className={!state.isScreenSmallMd ? "flex gap-5" : "flex flex-col gap-5 items-center"}>
         {newHouses && newHouses.map((property) => (
           <Link href={`/property/${property['_id']}`} key={property.id} className="flex border pb-2 px-2">
             <div className="flex flex-col">

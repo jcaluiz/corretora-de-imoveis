@@ -12,8 +12,8 @@ export const reducer = (state: StateType, action: ActionType) => {
       return { ...state, distrito: action.payload };
     case "ADDPROPERTY":
       return { ...state, addProperty: action.payload };
-    // case "ADDIMAGES":
-    //   return { ...state, addPropertyimagens: action.payload };
+    case "SCREENMD":
+      return { ...state, isScreenSmallMd: action.payload };
     default:
       return state;
   }
