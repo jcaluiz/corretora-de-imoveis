@@ -2,11 +2,10 @@ export default class RequestsProperty {
     private url: string;
 
     constructor() {
-        this.url = 'http://localhost:3006';
+        this.url = process.env.NEXT_PUBLIC_API_HOST || 'http://localhost:3006';
     }
 
     public async publishProperty(property: Object) {
-        console.log(`${this.url}/property`);
         const response = await fetch(`${this.url}/property`, {
             method: 'POST',
             headers: {
@@ -19,7 +18,6 @@ export default class RequestsProperty {
     }
 
     public async getAllProperty() {
-        console.log(`${this.url}/property`);
         const response = await fetch(`${this.url}/property`, {
             method: 'GET',
             headers: {
@@ -40,7 +38,6 @@ export default class RequestsProperty {
     }
 
     public async getPropertyById(id: string) {
-        console.log(`${this.url}/property`);
         const response = await fetch(`${this.url}/property/find-by-id?id=${id}`, {
             method: 'GET',
             headers: {
